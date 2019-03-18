@@ -14,21 +14,25 @@ public class CourseController {
     @Resource
     private CourseService courseService;
 
+    /*查——全部*/
     @RequestMapping(value = "/courses", method = RequestMethod.GET)
     public List<Course> selectAll() {
         return courseService.selectAll();
     }
 
+    /*查——自定的ID*/
     @RequestMapping(value = "/courses/{id}", method = RequestMethod.GET)
     public Course getOne(@PathVariable("id") long id) {
         return courseService.getOne(id);
     }
 
+    /*删*/
     @RequestMapping(value = "/courses/{id}", method = RequestMethod.DELETE)
     public void deleteCourse(@PathVariable("id") long id) {
         courseService.delete(id);
     }
 
+    /*增*/
     @RequestMapping(value = "courses", method = RequestMethod.POST)
     public Course addCourse(@RequestBody Course course) {
         course.setCourseCode(RandomUtil.getRandomCode());
@@ -44,7 +48,8 @@ public class CourseController {
         }*/
     }
 
-    @RequestMapping(value = "courses", method = RequestMethod.PUT)
+    /*改*/
+    @RequestMapping(value = "/courses", method = RequestMethod.PUT)
     public void updateCourse(@RequestBody Course course) {
         courseService.update(course);
     }

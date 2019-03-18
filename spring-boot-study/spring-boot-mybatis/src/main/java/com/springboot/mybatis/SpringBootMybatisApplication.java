@@ -8,6 +8,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @MapperScan("com.springboot.mybatis.mapper")/*在启动之前扫描Mapper*/
 public class SpringBootMybatisApplication {
     public static void main(String[] args) {
-        SpringApplication.run(SpringBootMybatisApplication.class, args);
+        SpringApplication.run(
+                SpringBootMybatisApplication.class, args);
     }
 }
