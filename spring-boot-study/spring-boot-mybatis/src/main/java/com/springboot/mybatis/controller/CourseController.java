@@ -3,12 +3,13 @@ package com.springboot.mybatis.controller;
 import com.springboot.mybatis.entity.Course;
 import com.springboot.mybatis.service.CourseService;
 import com.springboot.mybatis.util.RandomUtil;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.List;
 
-@RestController
+@Controller
 @RequestMapping(value = "/api")
 public class CourseController {
     @Resource
@@ -16,12 +17,14 @@ public class CourseController {
 
     /*查——全部*/
     @RequestMapping(value = "/courses", method = RequestMethod.GET)
+    @ResponseBody
     public List<Course> selectAll() {
         return courseService.selectAll();
     }
 
     /*查——自定的ID*/
     @RequestMapping(value = "/courses/{id}", method = RequestMethod.GET)
+    @ResponseBody
     public Course getOne(@PathVariable("id") long id) {
         return courseService.getOne(id);
     }
@@ -34,6 +37,7 @@ public class CourseController {
 
     /*增*/
     @RequestMapping(value = "courses", method = RequestMethod.POST)
+    @ResponseBody
     public Course addCourse(@RequestBody Course course) {
         course.setCourseCode(RandomUtil.getRandomCode());
         return courseService.insert(course);

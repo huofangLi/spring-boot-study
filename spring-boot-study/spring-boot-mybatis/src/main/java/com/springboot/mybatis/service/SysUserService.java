@@ -1,7 +1,6 @@
 package com.springboot.mybatis.service;
 
 import com.springboot.mybatis.entity.SysUser;
-
 import java.util.List;
 
 public interface SysUserService {

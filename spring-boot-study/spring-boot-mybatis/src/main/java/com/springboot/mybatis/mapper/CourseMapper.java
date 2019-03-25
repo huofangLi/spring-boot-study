@@ -36,8 +36,8 @@ public interface CourseMapper {
     void delete(Long courseId);
 
     /*插入*/
-    @Insert("INSERT INTO t_course(course_name,user_id,course_class,cover,course_code,finished) " +
-            "VALUES(#{courseName},#{userId},#{courseClass},#{cover},#{courseCode},#{finished})")
+    @Insert("INSERT INTO t_course(course_name,user_id,course_class,cover,course_code,finished)" +
+            " VALUES(#{courseName}, #{userId}, #{courseClass},#{cover},#{courseCode},#{finished}) ")
     void insert(Course course);
 
     /*修改*/
